@@ -22,7 +22,13 @@ SplashScreen.preventAutoHideAsync();
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    MBlck: require('../assets/fonts/Montserrat-Black.ttf'),
+    MBold: require('../assets/fonts/Montserrat-Bold.ttf'),
+    MBExb: require('../assets/fonts/Montserrat-ExtraBold.ttf'),
+    MBLig: require('../assets/fonts/Montserrat-Light.ttf'),
+    MBMid: require('../assets/fonts/Montserrat-Medium.ttf'),
+    MBReg: require('../assets/fonts/Montserrat-Regular.ttf'),
+    MThin: require('../assets/fonts/Montserrat-Thin.ttf'),
     ...FontAwesome.font,
   });
 
@@ -48,11 +54,8 @@ function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-      </Stack>
+    <ThemeProvider value={colorScheme === 'light' ? DarkTheme : DefaultTheme}>
+      <Stack />
     </ThemeProvider>
   );
 }
