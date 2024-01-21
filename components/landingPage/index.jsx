@@ -27,30 +27,35 @@ const styles = StyleSheet.create({
   container: {
     flexDirection: "row",
     justifyContent: 'space-between',
+    alignItems:'center',
     borderRadius: 10,
     overflow: 'hidden',
     backgroundColor: '#ECD9B8',
     elevation: 5, 
-    shadowColor: '#000', 
-    shadowOffset: { width: 0, height: 2 },
+    shadowColor: '#52006A', 
+    shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
     padding: 10,
+    margin:10
   },
   image: {
-    width: 250,
+    width: 220,
     height: 200,
   },
   textWrapper: {
-    marginTop: 20,
+    marginHorizontal: 10
   },
   title: {
     fontSize: 40,
-    fontWeight: 'bold',
     color: '#333',
+    fontFamily:'MBold',
+    lineHeight: 50,
   },
   highlight: {
+    fontSize: 40,
     color: '#7674C3',
+    fontFamily:"MBold",
   },
 });
 

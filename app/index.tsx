@@ -10,13 +10,15 @@ import {
 } from "react-native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Landing from "../components/landingPage/index";
+import BrandStrip from "@/components/Strip/Brandstrip";
 
 function HomeScreen() {
   return (
-    <ScrollView showsVerticalScrollIndicator={false}>
+    <ScrollView showsVerticalScrollIndicator={false} scrollEnabled={false}>
       <View style={{ flex: 1, padding: 10 }}>
         <Landing />
       </View>
+      <BrandStrip />
     </ScrollView>
   );
 }
