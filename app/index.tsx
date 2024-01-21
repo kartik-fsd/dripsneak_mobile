@@ -11,6 +11,7 @@ import {
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Landing from "../components/landingPage/index";
 import BrandStrip from "@/components/Strip/Brandstrip";
+import BenefitsSection from "@/components/BenifitSection/Benifit";
 
 function HomeScreen() {
   return (
@@ -19,6 +20,9 @@ function HomeScreen() {
         <Landing />
       </View>
       <BrandStrip />
+      <View style={{ flex: 1, marginVertical:10 }}>
+      <BenefitsSection />
+      </View>
     </ScrollView>
   );
 }
