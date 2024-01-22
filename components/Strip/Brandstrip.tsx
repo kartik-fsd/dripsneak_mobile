@@ -2,8 +2,9 @@ import {
   View,
   Text,
   StyleSheet,
-  SafeAreaView,
   VirtualizedList,
+  ScrollView,
+  SafeAreaView,
 } from "react-native";
 import { Marquee } from "@animatereactnative/marquee";
 interface BrandItem {
@@ -20,7 +21,7 @@ interface BrandItem {
 
 const BrandStrip: React.FC = () => {
   return (
-    <SafeAreaView style={styles.stripContainer}>
+    <View style={styles.stripContainer}>
       <Marquee spacing={10} speed={0.6}>
         <VirtualizedList
         data={brands}
@@ -36,7 +37,7 @@ const BrandStrip: React.FC = () => {
         )}
       />
       </Marquee>
-    </SafeAreaView>
+    </View>
   );
 };
 
