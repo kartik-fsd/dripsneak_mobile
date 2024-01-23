@@ -1,37 +1,4 @@
-// import React from 'react';
-// import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-
-// type CtaProps = {
-//   text: string;
-//   onPress: () => void;
-// };
-
-// const CtaButton: React.FC<CtaProps> = ({ text, onPress }) => {
-//   return (
-//     <TouchableOpacity style={styles.ctaButton} onPress={onPress}>
-//       <Text style={styles.ctaText}>{text}</Text>
-//     </TouchableOpacity>
-//   );
-// };
-
-// const styles = StyleSheet.create({
-//   ctaButton: {
-//     backgroundColor: '#D2A064', // Dusty Orange
-//     borderRadius: 8,
-
-//     marginVertical:10,
-//     alignItems: 'center',
-//     justifyContent: 'center',
-//   },
-//   ctaText: {
-//     fontSize: 18,
-//     color: '#fff', // White
-//     fontWeight: 'bold',
-//   },
-// });
-
-// export default CtaButton;
-
+import { Link } from "expo-router";
 import React from "react";
 import { View, Text, TouchableOpacity, StyleSheet } from "react-native";
 
@@ -46,9 +13,8 @@ const CtaButton: React.FC<CTAProps> = ({ text, onPress }) => {
     <View style={styles.container}>
       <TouchableOpacity
         style={styles.button}
-        onPress={onPress}
-        activeOpacity={0.8} // Add slight translucency on press
-      >
+        activeOpacity={0.8}
+        >
         <Text style={styles.buttonText}>{text}</Text>
       </TouchableOpacity>
     </View>
