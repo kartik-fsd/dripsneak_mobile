@@ -58,12 +58,7 @@ const FeaturedCategoriesSection: React.FC = () => {
 const styles = StyleSheet.create({
   sectionContainer: {
     padding: 20,
-    //backgroundColor: '#fff',
-    //borderRadius: 8,
     marginHorizontal: 10,
-    //flexDirection: "row",
-    //justifyContent: "space-between",
-    //alignItems: "center",
     borderRadius: 10,
     overflow: "hidden",
     backgroundColor: "#ECD9B8",
@@ -72,7 +67,6 @@ const styles = StyleSheet.create({
     shadowOffset: { width: -2, height: 4 },
     shadowOpacity: 0.25,
     shadowRadius: 3.84,
-    //padding: 10,
     margin: 10,
   },
   sectionTitle: {

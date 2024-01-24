@@ -1,46 +1,21 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
+import NewArrivalCard from '../Cards/Card';
 
 type NewArrival = {
   id: string; // Add appropriate type for actual identifier
   image: string; // URL or path to image
   name: string;
   rating: number;
-  price: number;
-  discountedPrice?: number; // Optional property for discount
-};
-
-const NewArrivalCard: React.FC<{ item: NewArrival }> = ({ item }) => {
-  const { image, name, rating, price, discountedPrice } = item;
-
-  return (
-    <TouchableOpacity style={styles.card}>
-      <Image source={{ uri: image }} style={styles.cardImage} />
-      <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{name}</Text>
-        <View style={styles.ratingContainer}>
-          <Text style={styles.ratingText}>{rating} ⭐</Text>
-        </View>
-        <View style={styles.priceContainer}>
-          {discountedPrice ? (
-            <>
-              <Text style={styles.originalPrice} >${price}</Text>
-              <Text style={styles.discountedPrice}>${discountedPrice}</Text>
-            </>
-          ) : (
-            <Text style={styles.price}>${price}</Text>
-          )}
-        </View>
-      </View>
-    </TouchableOpacity>
-  );
+  original_price: number;
+  category: string;
+  size? : string ;
+  discounted_price?: number; // Optional property for discount
+  reviews : number
 };
 
 const NewArrivalSection: React.FC = () => {
   const [newArrivals, setNewArrivals] = React.useState<NewArrival[]>([]);
-
-  // Fetch or receive new arrival data here and update state
-  // Replace this with your actual data fetching logic
 
   React.useEffect(() => {
     // Mock data for example
@@ -50,16 +25,20 @@ const NewArrivalSection: React.FC = () => {
         image: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393528/image-men-29_prja4e.png",
         name: 'Running Shoe X',
         rating: 4.5,
-        price: 100,
-        discountedPrice: 80,
+        original_price: 100,
+        discounted_price: 80,
+        category : "Sport",
+        reviews : 900,
       },
       {
         id: '2',
         image: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393528/image-men-16_plunul.png",
         name: 'Casual Shoe Y',
         rating: 4.2,
-        price: 75,
-        discountedPrice: 70,
+        original_price: 75,
+        discounted_price: 70,
+        category : "sport",
+        reviews : 790,
       },
       // Add more items as needed
     ]);
@@ -140,7 +119,7 @@ const styles = StyleSheet.create({
     fontFamily:"MBReg",
     color: '#333',
   },
-  discountedPrice: {
+  discounted_price: {
     fontSize: 20,
     fontFamily:"MBold",
     marginLeft: 5,

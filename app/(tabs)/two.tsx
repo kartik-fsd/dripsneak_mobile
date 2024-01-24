@@ -3,7 +3,13 @@ import { View, Text, StyleSheet, Image, TouchableOpacity } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 const MyAccountScreen = () => {
-  const user = {
+
+  interface User {
+    name : string;
+    email : string;
+    profileImage : any;
+  }
+  const user :User = {
     name: 'John Doe',
     email: 'john.doe@example.com',
     profileImage:  require('@/assets/images/Bg-Sneak.jpg'), // Replace with your image path
