@@ -50,7 +50,7 @@ const sneakers: Sneaker[] = [
 ];
 
 function Cart() {
-  const [isEmptyCart, setIsEmptyCart] = useState(true);
+  const [isEmptyCart, setIsEmptyCart] = useState(false);
 
 
   //setIsEmptyCart(sneakers.length === 0)

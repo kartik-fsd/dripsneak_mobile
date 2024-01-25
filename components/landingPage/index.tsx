@@ -1,10 +1,10 @@
 import React from "react";
-import { Text, View, StyleSheet, Image, FlatList } from "react-native";
+import { Text, View, StyleSheet, Image, FlatList, Pressable } from "react-native";
 import BrandStrip from "../Strip/Brandstrip";
 import NewArrivalSection from "../Category-offers/NewArrival";
 import BenefitsSection from "../BenifitSection/Benifit";
 import CtaButton from "../Button/Button";
-import HorizontalSneakerShowcaseScreen, { Sneaker } from "../Cards/HorizontalCard";
+import { Sneaker } from "../Cards/HorizontalCard";
 import SneakerItem from "../Cards/HorizontalCard";
 
 
@@ -86,6 +86,10 @@ const Landing: React.FC = () => {
       <View style={styles.Horizontalcontainer}>
       <Text style={styles.HorizontalsectionTitle}>Our Bestsellers</Text>
       <Text style={styles.HorizontalsectionDesc}>Discover the Heroic Sneaker Line that Transcends Boundaries</Text>
+      <View style={styles.HorizontalBtn}>
+      <Pressable><Text style={styles.HorizontalBtnPText}>Popular</Text></Pressable>
+      <Pressable><Text style={styles.HorizontalBtnText}>Show all</Text></Pressable>
+      </View>
       <FlatList
         data={sneakers}
         renderItem={renderSneakerItem}
@@ -174,6 +178,22 @@ const styles = StyleSheet.create({
     textAlign:"center",
     marginVertical : 10,
   },
+  HorizontalBtn : {
+    flexDirection:"row" ,
+    justifyContent:"space-between",
+    padding:10,
+    marginTop:10
+  },
+  HorizontalBtnText : {
+    fontSize: 15,
+    color: "#555",
+    fontFamily: "MBReg",
+  },
+  HorizontalBtnPText : {
+    fontSize: 16,
+    color: "#333",
+    fontFamily: "MBold",
+  }
 });
 
 export default Landing;
