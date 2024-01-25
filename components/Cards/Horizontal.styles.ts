@@ -1,23 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    padding: 20,
-  },
-  sectionTitle: {
-    fontSize: 20,
-    fontFamily:"MBold",
-    color: '#333',
-    textAlign:"center",
-  },
-  sectionDesc : {
-    fontSize: 16,
-    fontFamily:"MBReg",
-    color: '#333',
-    textAlign:"center",
-    marginVertical : 10,
-  },
   sneakerCard: {
     flexDirection: 'row',
     borderRadius: 15,
@@ -60,5 +43,22 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     color: '#777',
     fontFamily :"MBReg",
+  },
+
+  quantityControls: {
+    flexDirection: 'row',
+    alignItems:"center",
+    marginTop: 10,
+  },
+  quantityText: {
+    marginHorizontal: 10,
+    fontSize: 18,
+    fontFamily: 'MBReg',
+    color: '#333',
+  },
+  deleteIconContainer: {
+    marginVertical: 10,  
+    alignItems:"center",
+    paddingHorizontal:20
   },
 });

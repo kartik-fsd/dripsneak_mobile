@@ -1,12 +1,60 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, FlatList } from "react-native";
 import BrandStrip from "../Strip/Brandstrip";
 import NewArrivalSection from "../Category-offers/NewArrival";
 import BenefitsSection from "../BenifitSection/Benifit";
 import CtaButton from "../Button/Button";
-import HorizontalSneakerShowcaseScreen from "../Cards/HorizontalCard";
+import HorizontalSneakerShowcaseScreen, { Sneaker } from "../Cards/HorizontalCard";
+import SneakerItem from "../Cards/HorizontalCard";
+
+
+
+const sneakers: Sneaker[] = [
+  {
+    id: 1,
+    name: 'Aether Ultra Pro',
+    imageUrl: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393530/image-men-7_sxqeeb.png",
+    category: 'Running',
+    size: '9',
+    price: 120,
+    reviews : 900,
+    rating: 4.3,
+  },
+  {
+    id: 2,
+    name: 'Vanguard Accelerate',
+    imageUrl: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393499/image-men-20_gelxtj.png",
+    category: 'Casual',
+    size: '8',
+    price: 70,
+    reviews : 900,
+    rating: 4.2,
+  },
+  {
+    id: 3,
+    name: 'Luminary Synthesis',
+    imageUrl: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393502/image-men-31_vxocye.png",
+    category: 'Running',
+    size: '9',
+    price: 120,
+    reviews : 900,
+    rating: 4.1,
+  },
+  {
+    id: 4,
+    name: 'Ascend Quantum',
+    imageUrl: "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393537/image-men-22_ohmduh.png",
+    category: 'Casual',
+    size: '8',
+    price: 70,
+    reviews : 900,
+    rating: 4.5,
+  },
+  // Add more sneakers as needed
+];
 
 const Landing: React.FC = () => {
+  const renderSneakerItem = ({ item }: { item: Sneaker }) => <SneakerItem item={item} showControls={false}/>;
   return (
     <>
       <View style={styles.container}>
@@ -34,7 +82,16 @@ const Landing: React.FC = () => {
       </View>
 
       <NewArrivalSection />
-      <HorizontalSneakerShowcaseScreen />
+      {/* <HorizontalSneakerShowcaseScreen /> */}
+      <View style={styles.Horizontalcontainer}>
+      <Text style={styles.HorizontalsectionTitle}>Our Bestsellers</Text>
+      <Text style={styles.HorizontalsectionDesc}>Discover the Heroic Sneaker Line that Transcends Boundaries</Text>
+      <FlatList
+        data={sneakers}
+        renderItem={renderSneakerItem}
+        keyExtractor={(item) => item.id.toString()}
+      />
+    </View>
       <BenefitsSection />
       <Text style={styles.Register}>Become a member to unlock exclusive discounts and offers.</Text>
       <CtaButton text="shop now" onPress={() => {}} />
@@ -99,6 +156,23 @@ const styles = StyleSheet.create({
     fontFamily: "MBMid",
     fontSize: 16,
     textAlign :"center"
+  },
+  Horizontalcontainer: {
+    flex: 1,
+    padding: 20,
+  },
+  HorizontalsectionTitle: {
+    fontSize: 20,
+    fontFamily:"MBold",
+    color: '#333',
+    textAlign:"center",
+  },
+  HorizontalsectionDesc : {
+    fontSize: 16,
+    fontFamily:"MBReg",
+    color: '#333',
+    textAlign:"center",
+    marginVertical : 10,
   },
 });
 
