@@ -77,7 +77,7 @@ const NewArrivalSection: React.FC = () => {
       data={newArrivals}
       renderItem={renderItem}
       keyExtractor={(item) => item.id.toString()}
-      contentContainerStyle={{ paddingHorizontal: 10}}
+      contentContainerStyle={{ paddingHorizontal: 0}}
       horizontal
       />
     </View>

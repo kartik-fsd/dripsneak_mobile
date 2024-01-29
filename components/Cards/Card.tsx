@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     height: 200,
     marginBottom: 8,
     borderRadius: 8,
+    backgroundColor : "#F0ECE4"
   },
   cardContent: {
     padding: 10,
