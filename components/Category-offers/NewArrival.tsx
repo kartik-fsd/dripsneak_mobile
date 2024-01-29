@@ -42,18 +42,44 @@ const NewArrivalSection: React.FC = () => {
         category: "sport",
         reviews: 790,
       },
+      {
+        id: "3",
+        image:
+          "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393528/image-men-29_prja4e.png",
+        name: "Running Shoe X",
+        rating: 4.5,
+        original_price: 100,
+        discounted_price: 80,
+        category: "Sport",
+        reviews: 900,
+      },
+      {
+        id: "4",
+        image:
+          "https://res.cloudinary.com/dnv5dhp9h/image/upload/v1688393528/image-men-16_plunul.png",
+        name: "Casual Shoe Y",
+        rating: 4.2,
+        original_price: 75,
+        discounted_price: 70,
+        category: "sport",
+        reviews: 790,
+      },
       // Add more items as needed
     ]);
   }, []);
 
+  const renderItem = ({ item }: { item: NewArrival }) =>  <NewArrivalCard key={item.id} item={item} />
+
   return (
     <View style={styles.sectionContainer}>
       <Text style={styles.sectionTitle}>New Arrivals 🔥</Text>
-      <View style={styles.cardContainer}>
-        {newArrivals.map((item) => (
-          <NewArrivalCard key={item.id} item={item} />
-        ))}
-      </View>
+      <FlatList 
+      data={newArrivals}
+      renderItem={renderItem}
+      keyExtractor={(item) => item.id.toString()}
+      contentContainerStyle={{ paddingHorizontal: 10}}
+      horizontal
+      />
     </View>
   );
 };

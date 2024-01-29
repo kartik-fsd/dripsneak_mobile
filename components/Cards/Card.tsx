@@ -74,8 +74,9 @@ const NewArrivalCard: React.FC<{ item: NewArrival }> = ({ item }) => {
 
 const styles = StyleSheet.create({
   card: {
-    width: "48%",
+    width: 200,
     marginBottom: 15,
+    marginHorizontal:10,
     borderRadius: 8,
     overflow: "hidden",
     backgroundColor: "#F7EBD5",
@@ -85,6 +86,7 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.2,
     shadowRadius: 4,
     position: "relative",
+    padding : 10
   },
   heartIconContainer: {
     position: "absolute",
