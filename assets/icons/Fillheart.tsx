@@ -9,7 +9,7 @@ export default function FillHeart() {
       viewBox="0 0 1792 1792" 
       id="Heart"
       width={30}
-      height={30}
+      height={35}
       >
         <Path d="M896 1664q-26 0-44-18l-624-602q-10-8-27.5-26T145 952.5 77 855 23.5 734
          0 596q0-220 127-344t351-124q62 0 126.5 21.5t120 58T820 276t76 68q36-36 76-68t95.5-68.5 

@@ -6,7 +6,7 @@ import BenefitsSection from "../BenifitSection/Benifit";
 import CtaButton from "../Button/Button";
 import { Sneaker } from "../Cards/HorizontalCard";
 import SneakerItem from "../Cards/HorizontalCard";
-
+import { router } from 'expo-router';
 
 
 const sneakers: Sneaker[] = [
@@ -88,7 +88,7 @@ const Landing: React.FC = () => {
       <Text style={styles.HorizontalsectionDesc}>Discover the Heroic Sneaker Line that Transcends Boundaries</Text>
       <View style={styles.HorizontalBtn}>
       <Pressable><Text style={styles.HorizontalBtnPText}>Popular</Text></Pressable>
-      <Pressable><Text style={styles.HorizontalBtnText}>Show all</Text></Pressable>
+      <Pressable onPress={() =>router.navigate("/listing")}><Text style={styles.HorizontalBtnText}>Show all</Text></Pressable>
       </View>
       <FlatList
         data={sneakers}

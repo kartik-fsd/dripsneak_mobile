@@ -10,16 +10,17 @@ import {
   TouchableOpacity,
   Pressable,
 } from "react-native";
+import { router } from 'expo-router';
 
 type NewArrival = {
-  id: string; // Add appropriate type for actual identifier
-  image: string; // URL or path to image
+  id: string;
+  image: string;
   name: string;
   rating: number;
   original_price: number;
   size?: string;
   category?: string;
-  discounted_price?: number; // Optional property for discount
+  discounted_price?: number;
   reviews: number;
 };
 
@@ -37,18 +38,27 @@ const NewArrivalCard: React.FC<{ item: NewArrival }> = ({ item }) => {
 
   const [isPressed, setIsPressed] = useState(false);
 
-  const handlePress = () => {
+  const handleHeartPress = () => {
     setIsPressed((prev) => !prev);
   };
 
   return (
-    <TouchableOpacity style={styles.card}>
+    <Pressable style={styles.card} onPress={() => router.navigate("/listing")}>
       <Image source={{ uri: image }} style={styles.cardImage} />
-      <Pressable style={styles.heartIconContainer} onPress={handlePress}>
-      {isPressed ? <FillHeart /> : <Heart />}
-      </Pressable>
       <View style={styles.cardContent}>
-        <Text style={styles.cardTitle}>{name}</Text>
+        <View style={styles.titleContainer}>
+          <Text style={styles.cardTitle}>{name}</Text>
+          <Pressable
+            style={styles.heartIconContainer}
+            onPress={(e) => {
+              e.stopPropagation();
+              handleHeartPress();
+            }}
+          >
+            {isPressed ? <FillHeart /> : <Heart />}
+          </Pressable>
+        </View>
+
         <Text style={styles.sneakerCate}>
           {`${category} ${size ? `| Size ${size}` : ""} `}
         </Text>
@@ -68,7 +78,7 @@ const NewArrivalCard: React.FC<{ item: NewArrival }> = ({ item }) => {
           )}
         </View>
       </View>
-    </TouchableOpacity>
+    </Pressable>
   );
 };
 
@@ -89,26 +99,28 @@ const styles = StyleSheet.create({
     padding : 10
   },
   heartIconContainer: {
-    position: "absolute",
-    top: 10,
-    right: 10,
-    zIndex: 1, // Ensure the heart icon is on top of other content
+    marginLeft: 10, 
   },
   cardImage: {
     width: "100%",
     height: 200,
     marginBottom: 8,
     borderRadius: 8,
-    backgroundColor : "#F0ECE4"
+    backgroundColor: "#F0ECE4",
   },
   cardContent: {
     padding: 10,
+  },
+  titleContainer: {
+    flexDirection: 'row', 
+    alignItems: 'center', 
   },
   cardTitle: {
     fontSize: 16,
     fontFamily: "MBMid",
     color: "#333",
     marginBottom: 5,
+    flex:1
   },
   ratingContainer: {
     flexDirection: "row",
